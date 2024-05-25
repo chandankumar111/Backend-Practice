@@ -1,0 +1,15 @@
+h1{
+    color: brown;
+}
+
+.box{
+    background-color: rgb(216, 122, 35);
+}
+
+.user{
+    font-style: italic;
+}
+
+#goback_button{
+    text-decoration: none;
+}

@@ -1,0 +1,65 @@
+{
+    "cats":{
+        "name":"cats",
+        "followers":21000,
+        "following":5,
+        "posts":[{
+            "image":"C:/Users/Chandan/Desktop/Web Project/Backend/EJSDirectory/photos/pari.jpg",
+            "likes":562,
+            "comments":2
+        },
+        {
+            "image":"C:/Users/Chandan/Desktop/Web Project/Backend/EJSDirectory/photos/pari.jpg",
+            "likes":541,
+            "comments":4
+        },
+        {
+            "image":"C:/Users/Chandan/Desktop/Web Project/Backend/EJSDirectory/photos/pari.jpg",
+            "likes":565,
+            "comments":47
+        }
+    ]
+    },
+    "dogs":{
+        "name":"dogs",
+        "followers":21000,
+        "following":5,
+        "posts":[{
+            "image":"C:/Users/Chandan/Desktop/Web Project/Backend/EJSDirectory/photos/pari.jpg",
+            "likes":562,
+            "comments":2
+        },
+        {
+            "image":"C:/Users/Chandan/Desktop/Web Project/Backend/EJSDirectory/photos/pari.jpg",
+            "likes":541,
+            "comments":4
+        },
+        {
+            "image":"C:/Users/Chandan/Desktop/Web Project/Backend/EJSDirectory/photos/pari.jpg",
+            "likes":565,
+            "comments":47
+        }
+    ]
+    },
+    "lions":{
+        "name":"lions",
+        "followers":21000,
+        "following":5,
+        "posts":[{
+            "image":"C:/Users/Chandan/Desktop/Web Project/Backend/EJSDirectory/photos/pari.jpg",
+            "likes":562,
+            "comments":2
+        },
+        {
+            "image":"C:/Users/Chandan/Desktop/Web Project/Backend/EJSDirectory/photos/pari.jpg",
+            "likes":541,
+            "comments":4
+        },
+        {
+            "image":"C:/Users/Chandan/Desktop/Web Project/Backend/EJSDirectory/photos/pari.jpg",
+            "likes":565,
+            "comments":47
+        }
+    ]
+    }
+}

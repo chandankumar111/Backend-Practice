@@ -1,0 +1,35 @@
+<% layout("../layouts/biolerplate") -%>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <form action="/listings" method="POST">
+        <h3>Create a New Listing</h3>
+        <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" placeholder="Add a Catchy Title" class="form-control">
+        </div>
+        <div>
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" id="description" placeholder="Enter Description" class="form-control"></textarea>
+        </div>
+        <div>
+            <label for="image" class="form-label">Image URL</label>
+            <input type="text" name="listing[image]" placeholder="Enter image URL/Link" class="form-control">
+        </div>
+        <div class="row">
+            <div class="mb-3 col-4">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" name="listing[price]" placeholder="12000" class="form-control">
+            </div>
+            <div class="mb-3 col-md-8">
+                <label for="country" class="form-label">Country</label>
+                <input type="text" name="listing[country]" placeholder="India" class="form-control">
+            </div>
+        </div>
+        <div>
+            <label for="loaction" class="form-label">Location</label>
+            <input type="text" name="listing[location]" placeholder="Bodhagaya, Gaya" class="form-control">
+        </div>
+            <button class="btn btn-dark add-btn mt-3 mb-3">Add</button>
+    </form>
+    </div>
+    </div>

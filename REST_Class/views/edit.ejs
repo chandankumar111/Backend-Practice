@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Content</title>
+</head>
+<style>
+    body{
+        color:white;
+    }
+</style>
+<body bgcolor="#6d6262">
+    <h1>Edit This Content</h1>
+    <p>Id : <%= post.id %></p>
+    <p>Username : <%= post.username %></p>
+    <form>
+    <textarea name="content" id="content" rows="10" cols="30"><%= post.content %></textarea><br>
+    <button>Submit</button>
+    </form>
+    <button><a id="goback_button" href="http://localhost:8080/posts/">Go Back to All Posts</a></button>
+</body>
+</html>
