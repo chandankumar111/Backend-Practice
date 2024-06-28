@@ -69,11 +69,11 @@ const findCustomer = async () => {
 
 const addCustomer = async () =>{
     let newCustomer = new Customer({
-        name:"Suraj Chouhan"
+        name:"Chandani Chouhan"
     });
 
     let newOrder = new Order({
-        item:"Cherry",
+        item:"Samousa with Chatni",
         price:599
     });
 
@@ -83,11 +83,17 @@ const addCustomer = async () =>{
 }
 
 const DeleteCustomer =async () =>{
-    let DelCust = await Customer.findByIdAndDelete("667d15abdc880206ce0b7876");
+    let DelCust = await Customer.findByIdAndDelete("665b6856323096c57d5863b8");
     console.log(DelCust);
+}
+
+const deleteOrder = async () =>{
+    let delresult = await Order.deleteMany();
+    console.log(delresult);
 }
 // addOrder();
 // findCustomer();
-DeleteCustomer();
-// addCustomer();
+// DeleteCustomer();
+addCustomer();
+// deleteOrder();
 
