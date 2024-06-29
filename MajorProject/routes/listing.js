@@ -15,6 +15,8 @@ const validateListing = (req,res,next) => {
     }
   };
   
+  
+
 //index route
 router.get("/",wrapAsync(async (req,res)=>{
     const allListings = await Listing.find({});
@@ -28,29 +30,11 @@ router.get("/",wrapAsync(async (req,res)=>{
   
   router.post("/", validateListing,wrapAsync(async (req,res,next)=>{
    
-    // if(!req.body.listing){
-    //   throw new ExpressError(400,"Send Valid data for Listing");
-    // }
+
     const newListing = new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
-    // if(!newListing.title){
-    //   throw new ExpressError(400,"Title is Missing");
-    // }
-    // if(!newListing.discription){
-    //   throw new ExpressError(400,"Discription is Missing");
-    // }
-    // if(!newListing.price){
-    //   throw new ExpressError(400,"Price is Missing");
-    // }
-    // if(!newListing.location){
-    //   throw new ExpressError(400,"Location is Missing");
-    // }
-    // if(!newListing.country){
-    //   throw new ExpressError(400,"Country is Missing");
-    // }
-   
-    // console.log(newListing);
+    
     
   }));
   
@@ -64,7 +48,7 @@ router.get("/",wrapAsync(async (req,res)=>{
   router.put("/:id",validateListing,wrapAsync(async (req,res)=>{
     let {id} = req.params;
     await Listing.findByIdAndUpdate(id,{...req.body.listing});
-    res.redirect(`/${id}`);
+    res.redirect(`/listings/${id}`);
   }));
   
   router.delete("/:id",wrapAsync(async (req,res)=>{
@@ -74,4 +58,14 @@ router.get("/",wrapAsync(async (req,res)=>{
     res.redirect("/listings");
   }));
   
+  
+  
+  //Show route
+  router.get("/:id",wrapAsync(async (req,res)=>{
+    let {id} = req.params;
+    const listing = await Listing.findById(id).populate("reviews"); 
+    res.render("show.ejs",{listing});
+  }));
+  
+
   module.exports = router;
