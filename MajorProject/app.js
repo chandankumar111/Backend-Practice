@@ -8,10 +8,14 @@ const ejsMate = require("ejs-mate");
 const ExpressError = require("./utils/ExpressError.js");
 const Review = require("./models/review.js");
 // const Listing = require("./models/listing.js");
-const listings = require("./routes/listing.js")
-const reviews = require("./routes/review.js");
+const listingsRouter = require("./routes/listing.js")
+const reviewsRouter = require("./routes/review.js");
+const userRouter = require("./routes/user.js");
 const session = require("express-session");
 const flash = require("connect-flash");
+const passport = require("passport");
+const localStrategy = require("passport-local");
+const User = require("./models/user.js");
 
 const sessionOption = {
   secret: "mysecretesessioncode",
@@ -26,6 +30,13 @@ const sessionOption = {
 
 app.use(session(sessionOption));
 app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 const port = 8080;
 
@@ -54,14 +65,23 @@ app.use((req,res,next)=>{
   // console.log(res.locals.success);
   next();
 })
-app.use("/listings", listings);
-app.use("/listings/:id/reviews", reviews);
+app.use("/listings", listingsRouter);
+app.use("/listings/:id/reviews", reviewsRouter);
+app.use("/",userRouter);
 
 // root route
 app.get("/", (req, res) => {
   res.send("Wroking Well");
 });
 
+// app.get("/demouser",async (req,res)=>{
+//   let fakeUser = new User({
+//     email:"chandanichandan@gmail.com",
+//     username:"chandanichandan"
+//   });
+//   let registeredUser = await User.register(fakeUser,"thisismypassword");
+//   res.send(registeredUser);
+// });
 
 
 app.all("*", (req, res, next) => {
